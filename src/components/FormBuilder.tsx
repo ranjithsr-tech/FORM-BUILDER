@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Button,
   TextField,
@@ -120,7 +120,7 @@ const DynamicFormBuilder: React.FC = () => {
     }
   };
 
-  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleTabChange = (newValue: number) => {
     setTabIndex(newValue);
     setCurrentForm(null);
     setViewingForm(null);
@@ -158,14 +158,14 @@ const DynamicFormBuilder: React.FC = () => {
               {currentForm.fields.map((field, index) => (
                 <Box sx={{mb:1}} key={field.id} className="field-container">
                   <TextField
-                  sx={{mb:1, mt:index === 0 ? 1: 0}}
+                  sx={{mb:1, mt:index === 0 ? 1: 3}}
                     label={`Field Label ${index + 1}`}
                     value={field.label}
                     onChange={(e) => handleFieldChange(field.id, 'label', e.target.value)}
                     fullWidth
                   />
                   {field.type === 'radio' || field.type === 'checkbox' ? (
-                    <Box sx={{mt:2}}>
+                    <Box sx={{mt:0}}>
                       <Typography variant="subtitle1">Options</Typography>
                       {field.options?.map((option, optionIndex) => (
                         <Box key={optionIndex} className="option-container" sx={{display:'flex', mb:1}}>
