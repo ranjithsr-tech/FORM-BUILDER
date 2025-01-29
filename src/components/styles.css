@@ -1,0 +1,89 @@
+/* General container styling */
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+/* Header styling */
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+/* Tabs styling */
+.tabs {
+  margin-bottom: 20px;
+}
+
+/* Tab content styling */
+.tab-content {
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons */
+.create-button,
+.add-field-button,
+.save-button {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+/* Form card styling */
+.form-card,
+.view-card {
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+/* Form actions */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .header {
+    font-size: 1.5rem;
+  }
+
+  .form-card,
+  .view-card {
+    padding: 15px;
+    border:1px solid red;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1400px;
+    padding: 40px;
+  }
+
+  .header {
+    font-size: 2.5rem;
+  }
+
+  .form-card,
+  .view-card {
+    padding: 30px;
+  }
+}
