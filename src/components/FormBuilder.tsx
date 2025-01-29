@@ -120,11 +120,20 @@ const DynamicFormBuilder: React.FC = () => {
     }
   };
 
-  const handleTabChange = (newValue: number) => {
-    setTabIndex(newValue);
-    setCurrentForm(null);
-    setViewingForm(null);
+  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+    // Ensure the newValue is valid
+    if (newValue === 0 || newValue === 1) {
+      setTabIndex(newValue);
+      setCurrentForm(null);
+      setViewingForm(null);
+    }
   };
+  
+  // const handleTabChange = (newValue: number) => {
+  //   setTabIndex(newValue);
+  //   setCurrentForm(null);
+  //   setViewingForm(null);
+  // };
 
   const handleUpdateForm = () => {
     if (viewingForm) {
