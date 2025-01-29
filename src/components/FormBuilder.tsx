@@ -148,26 +148,27 @@ const DynamicFormBuilder: React.FC = () => {
           </Button>
 
           {currentForm && (
-            <Card className="form-card">
-              <Typography variant="h5" className="form-title">Create Form</Typography>
+            <Card className="form-card" sx={{mt:3}}>
+              <Typography sx={{mb:2}} variant="h5" className="form-title">Create Form</Typography>
               {['text', 'radio', 'checkbox'].map((type) => (
-                <Button key={type} variant="outlined" onClick={() => handleAddField(type as FormField['type'])} className="add-field-button">
+                <Button sx={{mr:2}} key={type} variant="outlined" onClick={() => handleAddField(type as FormField['type'])} className="add-field-button">
                   Add {type} Field
                 </Button>
               ))}
               {currentForm.fields.map((field, index) => (
-                <Box key={field.id} className="field-container">
+                <Box sx={{mb:1}} key={field.id} className="field-container">
                   <TextField
+                  sx={{mb:1, mt:index === 0 ? 1: 0}}
                     label={`Field Label ${index + 1}`}
                     value={field.label}
                     onChange={(e) => handleFieldChange(field.id, 'label', e.target.value)}
                     fullWidth
                   />
                   {field.type === 'radio' || field.type === 'checkbox' ? (
-                    <Box>
+                    <Box sx={{mt:2}}>
                       <Typography variant="subtitle1">Options</Typography>
                       {field.options?.map((option, optionIndex) => (
-                        <Box key={optionIndex} className="option-container">
+                        <Box key={optionIndex} className="option-container" sx={{display:'flex', mb:1}}>
                           <TextField
                             value={option}
                             onChange={(e) =>
@@ -181,7 +182,7 @@ const DynamicFormBuilder: React.FC = () => {
                           </IconButton>
                         </Box>
                       ))}
-                      <Button
+                      <Button sx={{mb:1, mt:2}}
                         variant="outlined"
                         onClick={() => handleAddOption(field.id)}
                         startIcon={<Add />}
